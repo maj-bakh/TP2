@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TP2 - Salle XR interactive</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.7.1/dist/aframe-v1.7.1.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #hud {
+            position: fixed;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            z-index: 10;
+            pointer-events: none;
+            font: 600 16px system-ui, sans-serif;
+            color: white;
+            text-shadow: 0 0 4px black, 0 0 4px black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="hud">
+        Visez avec le point blanc, touchez l'écran pour agir.
+    </div>
+
+    <a-scene id="scene"
+             vr-mode-ui="enabled: false"
+             renderer="antialias: true">
+
+        <!-- Sol -->
+        <a-plane
+            position="0 0 -2"
+            rotation="-90 0 0"
+            width="10"
+            height="10"
+            color="#cccccc">
+        </a-plane>
+
+        <!-- Ciel -->
+        <a-sky color="#9ec9ee"></a-sky>
+
+        <!-- Objet de test -->
+        <a-box
+            position="0 1.2 -2"
+            color="#e53935"
+            width="1"
+            height="1"
+            depth="1">
+        </a-box>
+
+        <!-- Caméra avec curseur -->
+        <a-entity position="0 1.6 0">
+            <a-camera>
+                <a-cursor
+                    color="white"
+                    fuse="false"
+                    raycaster="objects: .clickable">
+                </a-cursor>
+            </a-camera>
+        </a-entity>
+
+    </a-scene>
+
+    <script>
+        // Emplacement du script JavaScript
+    </script>
+
+</body>
+</html>
